@@ -12,7 +12,17 @@
 
 <script>
     export default {
-        props: ['icon', 'iconPosition']
+        // props: ['icon', 'iconPosition']
+        props: {
+            icon: {},
+            iconPosition: {
+                type: String,
+                default: 'left',
+                validator(value) { //属性检查器
+                    return !(value !== 'left' && value !== 'right');
+                }
+            }
+        }
     }
 </script>
 
@@ -20,7 +30,7 @@
     .g-button {
         font-size: var(--font-size);
         height: var(--button-height);
-        padding: 0  0.7255em;
+        padding: 0 0.7255em;
         border-radius: var(--border-radius);
         border: 1px solid var(--border-color);
         background: var(--button-bg);
